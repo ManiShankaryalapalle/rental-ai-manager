@@ -1,14 +1,18 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Bot,
+  LogOut,
   Mail,
   RefreshCw,
   Send,
   ShieldCheck,
   Sparkles,
   UserRound,
+  Users,
   Zap,
   Inbox as InboxIcon,
 } from "lucide-react";
@@ -93,6 +97,7 @@ function timeAgo(ts: number): string {
 }
 
 export default function OwnerDashboard() {
+  const router = useRouter();
   const [inquiries, setInquiries] = useState<Inquiry[]>([]);
   const [statsData, setStatsData] = useState(DEFAULT_STATS);
   const [filter, setFilter] = useState<Filter>("all");
@@ -207,30 +212,50 @@ export default function OwnerDashboard() {
     setFilter(f);
   }
 
+  async function handleLogout() {
+    await fetch("/api/auth/logout", { method: "POST" });
+    router.push("/owner/login");
+    router.refresh();
+  }
+
   const statTiles = [
-    { label: "Total Inquiries", value: statsData.total, icon: InboxIcon, glow: "violet" as const },
-    { label: "AI Resolved", value: `${statsData.resolutionRate}%`, icon: Bot, glow: "cyan" as const },
-    { label: "Needs You", value: statsData.pending, icon: UserRound, glow: "pink" as const },
-    { label: "Avg Response", value: "<10s", icon: Zap, glow: "violet" as const },
+    { label: "Total Inquiries", value: statsData.total, icon: InboxIcon, glow: "forest" as const },
+    { label: "AI Resolved", value: `${statsData.resolutionRate}%`, icon: Bot, glow: "green" as const },
+    { label: "Needs You", value: statsData.pending, icon: UserRound, glow: "amber" as const },
+    { label: "Avg Response", value: "<10s", icon: Zap, glow: "forest" as const },
   ];
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
       <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border border-neon-violet/30 bg-white/60 px-3 py-1 text-xs font-semibold text-neon-violet">
+          <span className="inline-flex items-center gap-2 rounded-full border border-neon-forest/30 bg-white/60 px-3 py-1 text-xs font-semibold text-neon-forest">
             <Sparkles size={13} /> Owner Dashboard
           </span>
           <h1 className="font-display mt-3 text-3xl font-bold text-ink">
             Everything the AI handled, <span className="text-gradient-neon">and what needs you</span>
           </h1>
         </div>
-        <button
-          onClick={load}
-          className="btn-outline-neon flex items-center gap-2 text-sm"
-        >
-          <RefreshCw size={14} /> Refresh
-        </button>
+        <div className="flex flex-wrap items-center gap-2">
+          <Link
+            href="/owner/tenants"
+            className="btn-outline-neon flex items-center gap-2 text-sm"
+          >
+            <Users size={14} /> Manage Tenants
+          </Link>
+          <button
+            onClick={load}
+            className="btn-outline-neon flex items-center gap-2 text-sm"
+          >
+            <RefreshCw size={14} /> Refresh
+          </button>
+          <button
+            onClick={handleLogout}
+            className="btn-outline-neon flex items-center gap-2 text-sm"
+          >
+            <LogOut size={14} /> Log Out
+          </button>
+        </div>
       </div>
 
       <div className="mb-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
@@ -305,7 +330,7 @@ export default function OwnerDashboard() {
 
         {/* Right column */}
         <div className="flex flex-col gap-6">
-          <GlowCard glow={selected ? "violet" : "none"} className="flex flex-col overflow-hidden">
+          <GlowCard glow={selected ? "forest" : "none"} className="flex flex-col overflow-hidden">
             {!selected && (
               <div className="p-8 text-center text-sm text-ink-soft">
                 Select an inquiry to view the full thread.
@@ -326,7 +351,7 @@ export default function OwnerDashboard() {
                     <PriorityBadge priority={selected.priority} />
                   </div>
                   {selected.escalationReason && (
-                    <div className="mt-3 flex items-start gap-2 rounded-lg bg-neon-pink/5 px-3 py-2 text-xs text-neon-pink">
+                    <div className="mt-3 flex items-start gap-2 rounded-lg bg-neon-amber/5 px-3 py-2 text-xs text-neon-amber">
                       <ShieldCheck size={13} className="mt-0.5 shrink-0" />
                       <span>{selected.escalationReason}</span>
                     </div>
@@ -344,7 +369,7 @@ export default function OwnerDashboard() {
                           m.sender === "tenant"
                             ? "bg-white/80 text-ink"
                             : m.sender === "ai"
-                              ? "bg-neon-cyan/10 text-ink"
+                              ? "bg-neon-green/10 text-ink"
                               : "bg-ink text-white"
                         }`}
                       >
@@ -365,7 +390,7 @@ export default function OwnerDashboard() {
                       value={replyText}
                       onChange={(e) => setReplyText(e.target.value)}
                       placeholder="Reply as the owner…"
-                      className="flex-1 rounded-full border border-ink/10 bg-white/80 px-4 py-2 text-xs outline-none focus:border-neon-violet/50"
+                      className="flex-1 rounded-full border border-ink/10 bg-white/80 px-4 py-2 text-xs outline-none focus:border-neon-forest/50"
                       onKeyDown={(e) => e.key === "Enter" && sendReply()}
                     />
                     <button
@@ -470,8 +495,8 @@ export default function OwnerDashboard() {
             </div>
             <div className="mb-3 flex items-center justify-between rounded-lg bg-white/60 px-3 py-2">
               <span className="text-xs text-ink-soft">Auto-reply to tenants</span>
-              <span className="flex items-center gap-1.5 text-xs font-semibold text-neon-cyan">
-                <span className="h-1.5 w-1.5 rounded-full bg-neon-cyan pulse-dot" /> On
+              <span className="flex items-center gap-1.5 text-xs font-semibold text-neon-green">
+                <span className="h-1.5 w-1.5 rounded-full bg-neon-green pulse-dot" /> On
               </span>
             </div>
             <p className="mb-2 text-xs leading-relaxed text-ink-soft">
@@ -480,7 +505,7 @@ export default function OwnerDashboard() {
               to you when a tenant explicitly says:
             </p>
             <div className="flex flex-wrap gap-1.5">
-              <span className="rounded-full bg-neon-pink/10 px-2.5 py-1 text-[11px] font-medium text-neon-pink">
+              <span className="rounded-full bg-neon-amber/10 px-2.5 py-1 text-[11px] font-medium text-neon-amber">
                 &ldquo;contact landlord&rdquo;
               </span>
             </div>

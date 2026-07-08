@@ -49,3 +49,12 @@ export interface AiVerdict {
   reply: string;
   reason: string | null;
 }
+
+export interface Tenant {
+  id: string;
+  fullName: string;
+  lastName: string;
+  unit: string;
+  address: string;
+  createdAt: number;
+}

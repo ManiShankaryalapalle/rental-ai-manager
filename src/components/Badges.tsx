@@ -27,20 +27,20 @@ export function CategoryBadge({ category }: { category: Category }) {
 export function StatusBadge({ status }: { status: Status }) {
   if (status === "ai_resolved") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-neon-cyan/10 px-2.5 py-1 text-xs font-semibold text-neon-cyan">
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-neon-green/10 px-2.5 py-1 text-xs font-semibold text-neon-green">
         <Bot size={12} /> AI Resolved
       </span>
     );
   }
   if (status === "escalated") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-neon-pink/10 px-2.5 py-1 text-xs font-semibold text-neon-pink">
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-neon-amber/10 px-2.5 py-1 text-xs font-semibold text-neon-amber">
         <UserRound size={12} /> Needs Owner
       </span>
     );
   }
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-neon-violet/10 px-2.5 py-1 text-xs font-semibold text-neon-violet">
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-neon-forest/10 px-2.5 py-1 text-xs font-semibold text-neon-forest">
       <UserRound size={12} /> Owner Replied
     </span>
   );

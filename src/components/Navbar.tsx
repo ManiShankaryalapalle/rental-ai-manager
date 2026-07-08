@@ -17,7 +17,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 px-4 pt-4">
       <nav className="mx-auto flex max-w-6xl items-center justify-between rounded-full glass-panel px-5 py-3">
         <Link href="/" className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-neon-cyan to-neon-violet text-white glow-ring-violet">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-neon-green to-neon-forest text-white glow-ring-forest">
             <Sparkles size={16} />
           </span>
           <span className="font-display text-sm font-bold tracking-wide text-ink">

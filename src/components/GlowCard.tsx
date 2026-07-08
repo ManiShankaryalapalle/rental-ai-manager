@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 
-type Glow = "cyan" | "pink" | "violet" | "none";
+type Glow = "green" | "amber" | "forest" | "none";
 
 const glowClass: Record<Glow, string> = {
-  cyan: "glow-ring-cyan",
-  pink: "glow-ring-pink",
-  violet: "glow-ring-violet",
+  green: "glow-ring-green",
+  amber: "glow-ring-amber",
+  forest: "glow-ring-forest",
   none: "",
 };
 

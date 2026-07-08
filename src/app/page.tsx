@@ -15,37 +15,37 @@ import { GlowCard } from "@/components/GlowCard";
 const features = [
   {
     icon: Bot,
-    glow: "cyan" as const,
+    glow: "green" as const,
     title: "AI Auto-Replies",
     body: "Tenants get instant, accurate answers on rent dates, maintenance steps, parking, pets, and lease basics — no waiting on a callback.",
   },
   {
     icon: Mail,
-    glow: "violet" as const,
+    glow: "forest" as const,
     title: "Gmail Autopilot",
     body: "The AI reads and replies to tenant emails straight from the owner's Gmail, so nothing falls through the cracks off-platform either.",
   },
   {
     icon: ShieldCheck,
-    glow: "pink" as const,
+    glow: "amber" as const,
     title: "Escalation On Request",
     body: 'The AI handles every message itself — tenants only reach the owner when they explicitly say "contact landlord."',
   },
   {
     icon: Inbox,
-    glow: "cyan" as const,
+    glow: "green" as const,
     title: "Unified Inbox",
     body: "Every inquiry from the website and Gmail lands in one dashboard, tagged by what the AI handled and what still needs a human.",
   },
   {
     icon: Zap,
-    glow: "violet" as const,
+    glow: "forest" as const,
     title: "Always On",
     body: "No off-hours, no missed messages. Tenants get a response in seconds, any time of day.",
   },
   {
     icon: MessageSquareText,
-    glow: "pink" as const,
+    glow: "amber" as const,
     title: "Owner Peace of Mind",
     body: "Only the handful of issues that truly need a decision ever reach the owner's desk — everything routine is already resolved.",
   },
@@ -72,7 +72,7 @@ export default function Home() {
       {/* Hero */}
       <section className="grid grid-cols-1 items-center gap-12 py-16 sm:py-24 lg:grid-cols-2">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border border-neon-violet/30 bg-white/60 px-3 py-1 text-xs font-semibold text-neon-violet">
+          <span className="inline-flex items-center gap-2 rounded-full border border-neon-forest/30 bg-white/60 px-3 py-1 text-xs font-semibold text-neon-forest">
             <Sparkles size={13} /> Autonomous rental management
           </span>
           <h1 className="font-display mt-5 text-4xl font-bold leading-tight tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
@@ -94,24 +94,24 @@ export default function Home() {
           </div>
           <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-ink-soft">
             <span className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-neon-cyan" /> Instant AI replies
+              <CheckCircle2 size={16} className="text-neon-green" /> Instant AI replies
             </span>
             <span className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-neon-violet" /> Gmail-aware
+              <CheckCircle2 size={16} className="text-neon-forest" /> Gmail-aware
             </span>
             <span className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-neon-pink" /> Escalates only on request
+              <CheckCircle2 size={16} className="text-neon-amber" /> Escalates only on request
             </span>
           </div>
         </div>
 
-        <GlowCard glow="violet" className="p-5 sm:p-6">
+        <GlowCard glow="forest" className="p-5 sm:p-6">
           <div className="mb-4 flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
               Live inquiry preview
             </span>
-            <span className="flex items-center gap-1.5 text-xs font-semibold text-neon-cyan">
-              <span className="h-1.5 w-1.5 rounded-full bg-neon-cyan pulse-dot" /> AI
+            <span className="flex items-center gap-1.5 text-xs font-semibold text-neon-green">
+              <span className="h-1.5 w-1.5 rounded-full bg-neon-green pulse-dot" /> AI
               active
             </span>
           </div>
@@ -120,7 +120,7 @@ export default function Home() {
             <div className="ml-auto max-w-[85%] rounded-2xl rounded-br-sm bg-ink px-4 py-2.5 text-sm text-white">
               Is parking included with my unit?
             </div>
-            <div className="max-w-[90%] rounded-2xl rounded-bl-sm bg-white/80 px-4 py-2.5 text-sm text-ink glow-ring-cyan">
+            <div className="max-w-[90%] rounded-2xl rounded-bl-sm bg-white/80 px-4 py-2.5 text-sm text-ink glow-ring-green">
               Each unit includes one assigned parking spot. Extra spots are
               $40/month, first-come first-served — ask the office for
               availability.
@@ -128,11 +128,11 @@ export default function Home() {
             <div className="ml-auto max-w-[85%] rounded-2xl rounded-br-sm bg-ink px-4 py-2.5 text-sm text-white">
               There&apos;s a gas smell in my apartment, please contact landlord.
             </div>
-            <div className="max-w-[90%] rounded-2xl rounded-bl-sm bg-white/80 px-4 py-2.5 text-sm text-ink glow-ring-pink">
+            <div className="max-w-[90%] rounded-2xl rounded-bl-sm bg-white/80 px-4 py-2.5 text-sm text-ink glow-ring-amber">
               Of course — I&apos;ve forwarded this straight to the property
               owner and they&apos;ll follow up with you directly.
             </div>
-            <div className="flex items-center gap-2 rounded-xl border border-neon-pink/25 bg-neon-pink/5 px-3 py-2 text-xs font-medium text-neon-pink">
+            <div className="flex items-center gap-2 rounded-xl border border-neon-amber/25 bg-neon-amber/5 px-3 py-2 text-xs font-medium text-neon-amber">
               <ShieldCheck size={14} /> Escalated to owner · urgent
             </div>
           </div>
@@ -172,11 +172,11 @@ export default function Home() {
             <GlowCard key={f.title} glow={f.glow} className="p-6">
               <div
                 className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl ${
-                  f.glow === "cyan"
-                    ? "bg-neon-cyan/10 text-neon-cyan"
-                    : f.glow === "pink"
-                      ? "bg-neon-pink/10 text-neon-pink"
-                      : "bg-neon-violet/10 text-neon-violet"
+                  f.glow === "green"
+                    ? "bg-neon-green/10 text-neon-green"
+                    : f.glow === "amber"
+                      ? "bg-neon-amber/10 text-neon-amber"
+                      : "bg-neon-forest/10 text-neon-forest"
                 }`}
               >
                 <f.icon size={20} />
@@ -198,7 +198,7 @@ export default function Home() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
           {steps.map((step, i) => (
             <GlowCard key={step.title} className="relative p-6 pt-10">
-              <span className="font-display absolute -top-5 left-6 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-neon-cyan to-neon-violet text-sm font-bold text-white glow-ring-violet">
+              <span className="font-display absolute -top-5 left-6 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-neon-green to-neon-forest text-sm font-bold text-white glow-ring-forest">
                 {i + 1}
               </span>
               <h3 className="font-display text-base font-semibold text-ink">
@@ -212,7 +212,7 @@ export default function Home() {
 
       {/* CTA */}
       <section className="py-12">
-        <GlowCard glow="cyan" className="flex flex-col items-center gap-5 p-10 text-center">
+        <GlowCard glow="green" className="flex flex-col items-center gap-5 p-10 text-center">
           <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
             See it handle a real question
           </h2>

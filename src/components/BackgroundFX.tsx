@@ -10,7 +10,7 @@ export function BackgroundFX() {
           left: "-8%",
           width: 420,
           height: 420,
-          background: "radial-gradient(circle, var(--color-neon-cyan-soft), transparent 70%)",
+          background: "radial-gradient(circle, var(--color-neon-green-soft), transparent 70%)",
         }}
       />
       <div
@@ -20,7 +20,7 @@ export function BackgroundFX() {
           right: "-10%",
           width: 480,
           height: 480,
-          background: "radial-gradient(circle, var(--color-neon-pink-soft), transparent 70%)",
+          background: "radial-gradient(circle, var(--color-neon-amber-soft), transparent 70%)",
           animationDelay: "-4s",
         }}
       />
@@ -31,7 +31,7 @@ export function BackgroundFX() {
           left: "20%",
           width: 500,
           height: 500,
-          background: "radial-gradient(circle, var(--color-neon-violet-soft), transparent 70%)",
+          background: "radial-gradient(circle, var(--color-neon-forest-soft), transparent 70%)",
           animationDelay: "-8s",
         }}
       />
@@ -39,7 +39,7 @@ export function BackgroundFX() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(246,248,253,0) 0%, rgba(246,248,253,0.6) 70%, rgba(246,248,253,0.95) 100%)",
+            "linear-gradient(180deg, rgba(250,245,233,0) 0%, rgba(250,245,233,0.6) 70%, rgba(250,245,233,0.95) 100%)",
         }}
       />
     </div>

@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-neon-cyan: #10c8d8;
-  --color-neon-cyan-soft: #6fe3ec;
-  --color-neon-pink: #e94fb0;
-  --color-neon-pink-soft: #ff9ad6;
-  --color-neon-violet: #7c5cff;
-  --color-neon-violet-soft: #b4a3ff;
-  --color-surface: #f6f8fd;
-  --color-surface-2: #eef2fc;
-  --color-ink: #16182b;
-  --color-ink-soft: #565a78;
+  --color-neon-green: #16a34a;
+  --color-neon-green-soft: #86efac;
+  --color-neon-amber: #d97706;
+  --color-neon-amber-soft: #fcd34d;
+  --color-neon-forest: #14532d;
+  --color-neon-forest-soft: #7fb88a;
+  --color-surface: #faf5e9;
+  --color-surface-2: #f1e9d3;
+  --color-ink: #23291f;
+  --color-ink-soft: #6b6a52;
   --font-display: var(--font-orbitron);
   --font-body: var(--font-outfit);
 }
 
 :root {
-  --background: #f6f8fd;
-  --foreground: #16182b;
+  --background: #faf5e9;
+  --foreground: #23291f;
 }
 
 html {
@@ -37,38 +37,38 @@ body {
   }
 
   .glass-panel {
-    background: rgba(255, 255, 255, 0.62);
+    background: rgba(255, 253, 246, 0.66);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.9);
     box-shadow:
-      0 1px 1px rgba(124, 92, 255, 0.04),
-      0 20px 40px -20px rgba(23, 30, 90, 0.18);
+      0 1px 1px rgba(20, 83, 45, 0.04),
+      0 20px 40px -20px rgba(40, 36, 20, 0.18);
   }
 
-  .glow-ring-cyan {
+  .glow-ring-green {
     box-shadow:
-      0 0 0 1px rgba(16, 200, 216, 0.35),
-      0 0 24px rgba(16, 200, 216, 0.25),
-      0 0 60px rgba(16, 200, 216, 0.12);
+      0 0 0 1px rgba(22, 163, 74, 0.35),
+      0 0 24px rgba(22, 163, 74, 0.25),
+      0 0 60px rgba(22, 163, 74, 0.12);
   }
 
-  .glow-ring-pink {
+  .glow-ring-amber {
     box-shadow:
-      0 0 0 1px rgba(233, 79, 176, 0.35),
-      0 0 24px rgba(233, 79, 176, 0.22),
-      0 0 60px rgba(233, 79, 176, 0.1);
+      0 0 0 1px rgba(217, 119, 6, 0.35),
+      0 0 24px rgba(217, 119, 6, 0.22),
+      0 0 60px rgba(217, 119, 6, 0.1);
   }
 
-  .glow-ring-violet {
+  .glow-ring-forest {
     box-shadow:
-      0 0 0 1px rgba(124, 92, 255, 0.35),
-      0 0 24px rgba(124, 92, 255, 0.22),
-      0 0 60px rgba(124, 92, 255, 0.1);
+      0 0 0 1px rgba(20, 83, 45, 0.35),
+      0 0 24px rgba(20, 83, 45, 0.22),
+      0 0 60px rgba(20, 83, 45, 0.1);
   }
 
   .text-gradient-neon {
-    background: linear-gradient(90deg, #10c8d8 0%, #7c5cff 55%, #e94fb0 100%);
+    background: linear-gradient(90deg, #16a34a 0%, #14532d 55%, #d97706 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -80,18 +80,18 @@ body {
     padding: 0.75rem 1.75rem;
     font-weight: 600;
     color: white;
-    background: linear-gradient(90deg, #10c8d8, #7c5cff);
+    background: linear-gradient(90deg, #16a34a, #14532d);
     box-shadow:
-      0 0 20px rgba(124, 92, 255, 0.35),
-      0 8px 24px -8px rgba(124, 92, 255, 0.5);
+      0 0 20px rgba(20, 83, 45, 0.35),
+      0 8px 24px -8px rgba(20, 83, 45, 0.5);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .btn-neon:hover {
     transform: translateY(-2px);
     box-shadow:
-      0 0 30px rgba(124, 92, 255, 0.5),
-      0 12px 30px -8px rgba(124, 92, 255, 0.6);
+      0 0 30px rgba(20, 83, 45, 0.5),
+      0 12px 30px -8px rgba(20, 83, 45, 0.6);
   }
 
   .btn-outline-neon {
@@ -99,20 +99,20 @@ body {
     padding: 0.75rem 1.75rem;
     font-weight: 600;
     color: var(--color-ink);
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(124, 92, 255, 0.3);
+    background: rgba(255, 253, 246, 0.7);
+    border: 1px solid rgba(20, 83, 45, 0.25);
     transition: box-shadow 0.2s ease, transform 0.2s ease;
   }
 
   .btn-outline-neon:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(16, 200, 216, 0.25);
+    box-shadow: 0 0 20px rgba(22, 163, 74, 0.25);
   }
 
   .grid-overlay {
     background-image:
-      linear-gradient(rgba(124, 92, 255, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(124, 92, 255, 0.06) 1px, transparent 1px);
+      linear-gradient(rgba(20, 83, 45, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20, 83, 45, 0.06) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
@@ -143,5 +143,5 @@ body {
 }
 
 * {
-  scrollbar-color: rgba(124, 92, 255, 0.35) transparent;
+  scrollbar-color: rgba(20, 83, 45, 0.3) transparent;
 }
